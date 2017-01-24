@@ -1,10 +1,10 @@
+var path = require('path');
+
 module.exports = {
   name: 'Ember CLI Simple Auth',
 
   included: function(app) {
-    this._super.included(app);
-
-    this.app.import(app.bowerDirectory + '/ember-simple-auth/simple-auth.amd.js', {
+    app.import(app.bowerDirectory + '/ember-simple-auth/simple-auth.amd.js', {
       exports: {
         'simple-auth/authenticators/base':                    ['default'],
         'simple-auth/authorizers/base':                       ['default'],
@@ -18,7 +18,7 @@ module.exports = {
         'simple-auth/stores/local-storage':                   ['default'],
         'simple-auth/session':                                ['default'],
         'simple-auth/configuration':                          ['default'],
-        'simple-auth/initializer':                            ['default']
+        'simple-auth/setup':                                  ['default']
       }
     });
   }

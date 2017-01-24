@@ -1,31 +1,59 @@
 #  Ember Simple Auth
 
+__This repository is deprecated. [Ember Simple Auth 1.0 is distributed as an
+Ember CLI Addon](https://github.com/simplabs/ember-simple-auth) that contains
+all of the previously individual parts of the library.__
+
 This is an npm package that contains the Ember Simple Auth base library
 packaged as an [Ember CLI](https://github.com/stefanpenner/ember-cli) Addon.
 
 ## Installation
 
-**Ember Simple Auth OAuth 2.0 requires at least Ember CLI 0.0.44.**
+**Ember Simple Auth requires at least Ember CLI 0.0.44.**
 
 To install simply run
+
+```
+ember install ember-cli-simple-auth
+```
+
+in your Ember CLI project's root.
+
+If you're using Ember CLI 0.2.2 or older, run
+
+```
+ember install:addon ember-cli-simple-auth
+```
+
+If you're using Ember CLI 0.1.4 or older, run
 
 ```
 npm install --save-dev ember-cli-simple-auth
 ember generate ember-cli-simple-auth
 ```
 
-in your Ember CLI project's root.
+### Configuration
 
-**Ember CLI now uses `window.[AppName]ENV` for environment configuration
-variables. Ember Simple Auth relies on `window.ENV` to read its configuration
-from though, so you'll also need to add this line to your `app/index.html`
-file:**
+Ember Simple Auth uses the Ember CLI project's configuration as defined in
+`config/environment.js`. Configure values for `ENV['simple-auth']`, e.g.:
 
-```diff
-  window.MyAppENV = {{ENV}};
-+ window.ENV = window.MyAppENV;
-  window.EmberENV = window.MyAppENV.EmberENV;
+```js
+ENV['simple-auth'] = {
+  serverTokenRevocationEndpoint: '/revoke'
+};
 ```
 
 For the actual Ember Simple Auth repository see
 https://github.com/simplabs/ember-simple-auth
+
+## Generators
+
+This addon comes with some generators that help with creating custom
+authenticators, authorizers, session stores or sessions:
+
+```
+ember generate authenticator custom
+ember generate authorizer custom
+ember generate session-store custom
+ember generate session custom
+```
